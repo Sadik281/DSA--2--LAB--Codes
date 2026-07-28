@@ -28,18 +28,18 @@ vector<int> left(n1);
 vector<int> right(n2);
     for(int i=0;i<n1;i++)
     {
-        left[i]=arr[l+i];
+        left[i]=arr[l+i]; // Copying elements to the left subarray
     }
     for(int i=0;i<n2;i++)
     {
-        right[i]=arr[m+1+i];
+        right[i]=arr[m+1+i]; // Copying elements to the right subarray
     }
     int res=0;
     int i=0,j=0,k=l;
-    while(i<n1 && j<n2)
+    while(i<n1 && j<n2) // Merging the two subarrays and counting inversions
 
     {
-        if(left[i]<=right[j])
+        if(left[i]<=right[j]) // If the current element in the left subarray is less than or equal to the current element in the right subarray
         {
             arr[k]=left[i];
             i++;
@@ -48,7 +48,7 @@ vector<int> right(n2);
         {
             arr[k]=right[j];
             j++;
-            res+=n1-i;
+            res+=n1-i;// Counting the number of inversions
         }
         k++;
     }
